@@ -4,7 +4,7 @@ import plotly.express as px
 
 
 # leitura do dados do dataFrame
-data = pd.read_csv('https://raw.githubusercontent.com/thalesgvl/FGA-UnB/main/APC/dashboard/medalhapaises.txt')
+data = pd.read_csv('https://raw.githubusercontent.com/thalesgvl/FGA-UnB/main/APC/dashboard/medalhapaises.csv')
 df = pd.DataFrame(data)
 dados = df.values.tolist()
 
