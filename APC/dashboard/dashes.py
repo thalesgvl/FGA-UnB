@@ -22,7 +22,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background'], 'height': 
             'color': colors['text']
         }
     ),
-    html.Div(children='Visualize a distribuição de medalhas olímpicas por continente, país e o total de medalhas por país.', style={
+    html.Div(children='Visualize a distribuição de medalhas olímpicas por continente, países e o total de medalhas por país.', style={
         'textAlign': 'center',
         'color': colors['text']
     }),
@@ -60,7 +60,7 @@ app.layout = html.Div(style={'backgroundColor': colors['background'], 'height': 
             {'label': 'Inverno', 'value': 'Inverno'},
             {'label': 'Todas', 'value': 'Todas'}
         ],
-        value='Todas',
+        value='Verão',
         id='mapa_edicao',
         style={'color': colors['text']}
 

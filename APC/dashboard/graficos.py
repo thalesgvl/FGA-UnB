@@ -8,34 +8,6 @@ data = pd.read_csv('https://raw.githubusercontent.com/thalesgvl/FGA-UnB/main/APC
 df = pd.DataFrame(data)
 dados = df.values.tolist()
 
-
-def cria_grafico_wm(edicoes_olimpicas):
-    # Verifica qual estação foi escolhida e calcula as medalhas
-    if edicoes_olimpicas == 'Verão':
-        df['Medalhas'] = df['summer_total']
-    elif edicoes_olimpicas == 'Inverno':
-        df['Medalhas'] = df['winter_total']
-    else:  # Todas
-        df['Medalhas'] = df['summer_total'] + df['winter_total']
-
-    # Crie o gráfico do total de medalhas
-    fig = px.choropleth(
-        df,
-        locations='countries ',
-        locationmode='country names',
-        color='Medalhas',
-        hover_name='countries ',
-        color_continuous_scale=px.colors.sequential.Peach,
-        title=f'Distribuição de Medalhas - {edicoes_olimpicas}'
-    )
-
-    return fig
-
-
-fig_verao = cria_grafico_wm('Verão')
-fig_inverno = cria_grafico_wm('Inverno')
-fig_todas = cria_grafico_wm('Todas')
-
 # prepara uma lista para receber os valores de *continentes, *medalhas de ouro, *prata e *bronze
 continente = []
 
@@ -194,7 +166,7 @@ def cria_grafico_pizza(edicao_olimpica):
         grafico = px.pie(template="plotly_white", values=valores, names=paises,
                          title='15 países que mais conquistaram medalhas em todas as edições das Olimpíadas', hole=.2, color_discrete_sequence=px.colors.sequential.RdBu)
 
-    ############### GRAFICO DE OLIMIPADAS DE VERÃO - SUMMERTOT
+    ############### GRAFICO DE OLIMIPADAS DE VERÃO
     if edicao_olimpica == 'Verão':
 
         for coluna in dados:
@@ -210,9 +182,9 @@ def cria_grafico_pizza(edicao_olimpica):
             listsummertot.append(estrutura2[i][1])
         grafico = px.pie(df, values=listsummertot, names=listsummern,
                          hole=.2, color_discrete_sequence=px.colors.sequential.solar,
-                         title='15 países que mais conquistaram medalhas em edições de Verão das Olimpíadas')
+                         title='15 países que mais conquistaram medalhas em edições de verão das Olimpíadas')
 
-    ############### GRAFICO DE OLIMIPADAS DE INVERNO - SUMMERTOT
+    ############### GRAFICO DE OLIMIPADAS DE INVERNO
     if edicao_olimpica == 'Inverno':
         for coluna in dados:
             pais_valor3 = []
@@ -234,3 +206,33 @@ def cria_grafico_pizza(edicao_olimpica):
 
 
 opcoes_grafico_pizza = ['Inverno', 'Verão', 'Todas']
+
+
+#cria mapa de calor
+#usando pandas para filtrar campos
+def cria_grafico_wm(edicoes_olimpicas):
+    # verifica qual estação foi escolhida e calcula as medalhas
+    if edicoes_olimpicas == 'Verão':
+        df['Medalhas'] = df['summer_total']
+    elif edicoes_olimpicas == 'Inverno':
+        df['Medalhas'] = df['winter_total']
+    else:  # Todas
+        df['Medalhas'] = df['summer_total'] + df['winter_total']
+
+    # cria o gráficos de calor
+    fig = px.choropleth(
+        df,
+        locations='countries ',
+        locationmode='country names',
+        color='Medalhas',
+        hover_name='countries ',
+        color_continuous_scale=px.colors.sequential.Peach,
+        title=(f'Distribuição de medalhas no mapa. Edição: {edicoes_olimpicas}')
+    )
+
+    return fig
+
+
+fig_verao = cria_grafico_wm('Verão')
+fig_inverno = cria_grafico_wm('Inverno')
+fig_todas = cria_grafico_wm('Todas')
