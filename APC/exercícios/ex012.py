@@ -1,0 +1,5 @@
+p = float(input('Qual o preço do produto?: '))
+desc = (p * 0.05)
+pf = (p - desc)
+print('O produto de preço original de R${:.2f}, possui desconto de (5%).'.format(p))
+print('O preço final do produto com (5%) de desconto é de: R${:.2f}.'.format(pf))
