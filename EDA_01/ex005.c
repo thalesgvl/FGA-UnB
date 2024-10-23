@@ -23,7 +23,7 @@ int main()
 
         if (opc == 0)
         {
-            printf("Programa finalizado com sucesso.\n");
+            printf("Programa finalizado com sucesso!\n");
             return 0;
         }
         
