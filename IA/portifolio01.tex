@@ -1,0 +1,322 @@
+\documentclass[a4paper,12pt]{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage[brazil]{babel}
+\usepackage{setspace}
+\usepackage[left=3cm, right=2cm, top=3cm, bottom=2cm]{geometry}
+\usepackage{times}
+\usepackage{indentfirst}
+\usepackage{graphicx}
+\usepackage{amsmath}
+\usepackage{listings}
+\usepackage{xcolor}
+
+\setlength {\marginparwidth }{2cm}
+
+\begin{document}
+\begin{titlepage}
+\begin{center}
+\textbf{\LARGE Universidade de Brasília}\\[0.5cm] 
+\vspace{20pt}
+\includegraphics{Logo_UnB.png}\\[1cm]
+
+\vspace{32pt}
+\textbf{\LARGE Portfólio 01: Introdução à inteligência artificial, histórico, estado da arte, benefícios e riscos. Agentes inteligentes, ambientes e racionalidade.}\\
+\vspace{30pt}
+
+\textbf{\Large Disciplina:}\\[0.2cm]
+\large{Inteligência Artificial}\\[0.1cm]
+\vspace{30pt}
+
+\textbf{\Large Professor:}\\[0.2cm]
+\large{Fabiano Araújo Soares}\\[0.1cm]
+\vspace{30pt}
+
+\textbf{\Large Autor:}\\[0.2cm]
+\large{Thales Germano - 202017147}\\[0.1cm]
+\end{center}
+
+\vfill
+\begin{center}
+{\normalsize Brasília}\\
+\end{center}
+\end{titlepage}
+
+\newpage
+
+\section{Introdução}
+Por anos é de interesse do ser humano desenvolver, evoluir e implementar novas tecnologias no seu dia a dia. Isso já é um fenômeno natural que ocorre desde a invenção do fogo. Na era moderna, o ser humano passa a buscar novas formas de expandir seu conhecimento, e com o auxílio da Inteligência Artificial, uma importante inovação tecnológica, a tendência é que haja ma aceleração no crescimento de diversas áreas, não só da ciência, mas saúde, educação, econômica e etc.
+
+A Inteligência Artificial, ou IA, como é comumente conhecida, tem tido um papel cada vez mais presente na vida do homem, no entanto há muito a ser discutido quanto ao potencial dessa tecnologia que traz impactos tanto positivos quanto negativos dependendo de seu uso. Dessa forma, é natural que surgem também leis e questões sociais acerca da forma como a IA deve ser utilizada para que seja tirado o maior proveito possível sem comprometer a sociedade e o ser humano.
+
+\section{Apresentação do Conteúdo}
+\subsection{O que é Inteligência Artificial}
+Esse é um conceito ainda muito discutido na medida em que a tecnologia se encontra aplicada em muitas formas. Algumas definições são:
+
+\begin{itemize}
+    \item "A inteligência artificial faz com que computadores e máquinas imitem os recursos de resolução de problemas e tomada de decisão da mente humana" (IBM);
+
+    \item “O novo e interessante esforço para fazer os computadores pensarem... máquinas com mentes, no sentido total e literal”. (HAUGELAND, 1985). 
+
+    \item "Em sua essência, é a capacidade das máquinas de pensar como seres humanos. Ou seja, aprender, perceber e decidir quais caminhos seguir, de forma racional, diante de determinadas situações." (PUCRS, 2023)
+    
+\end{itemize}
+
+Essas são apenas algumas de muitas definições atribuidas a Inteligência Artificial. Em geral, levando em consideração essas e outras definições, é possível observar algumas abordagens em relação a como uma IA deveria agir e pensar.
+
+Em relação ao pensamento há duas frentes:
+
+\begin{itemize}
+    \item \textbf{Sistemas que pensam como humano}: A partir de estudos sobre o pensamento humano, e com a modelagem cognitiva, o foco é fazer com que máquinas pensem não de forma racional, mas que tenham o mesmo processo cognitivo de um ser humano, e por exemplo resolvem problemas de forma semelhante. Aqui é preciso colher e analisar dados com base a instrospecção (reflexão de um indivíduo sobre seus próprios pensamentos), experimentos psicológicos (Observar uma pessoa em ação) e imagens cerebrais para estudar o cerebro em funcionamento. 
+
+    \item \textbf{Sistemas que pensam racionalmente}: Enquanto que o ser humano, mesmo sendo considerado um ser racional, ele nem sempre age de tal forma, O mesmo muitas vezes nem pensa antes de agir ou simplesmente age de forma irracional, seja devido alguma enfermidade ou não. No entanto, a abordagem em questão, dá destaque para as leis de pensamento, ou seja principios fundamentais da lógica que guiam o pensamento humano. Aqui destaque-se o uso de silogismos por exemplo, para dar validação a argumentos.
+
+\end{itemize}
+
+Em relação à forma de agir há mais duas abordagens:
+
+\begin{itemize}
+    \item \textbf{Sistemas que agem como humanos}: Essa abordagem é voltada para estudos da inteligência artificial no contexto de simular o comportamento humano. A exemplo disso há o Teste de Turing. Em resumo esse teste consiste na observação de uma conversa entre um interrogador humano, um respondente humano e uma máquina respondente. O objetivo é verificar se a máquina consegue se passar por um humano através de suas respostas. Se sim, considera´se aprovada no Teste de Turing pois demonstra a capacidade de simular um comportamento indistinguivel de uma pessoa. (PARETO, 2023)
+
+    
+    \item \textbf{Sistemas que agem racionalmente}: Nessa abordagem o foco de estudo são de agentes que se comportam de maneira racional. Ou seja eles operam de maneira a se obter o melhor resultado disponível ou quando há incerteza o melhor resultado esperado. Um agente racional geralmente é inteligente, ou seja, ele tem consciência do ambiente, se adapta a mudanças e consegue a a partir disso tomar decisões. No entanto um agente inteligente nem sempre agirá de forma racional. Por exemplo no xadrez se há um agente que leva em consideração não só o estado atual do tabuleiro mas das jogadas possíveis do oponente, futuras e presentes para realizar sua jogada , ele é um agente racional.
+    
+\end{itemize}
+
+Em razão da ampla difusão da abordagem de agentes racionais para a IA, isso ficou conhecido como Modelo Padrão. Esse modelo é voltado no desenvolvimento de agentes com a finalidade de realizarem aquilo que foi determinado a ele como seu objetivo, a "coisa certa". O problema é que conforme os problemas se aproximam da realidade se torna cada vez mais complidado o fornecimento desse objetivo. No caso de carros autônomos por exemplo, entre o pedestre e o passageiro, é difícil dizer quem deve ter prioridade de segurança para a IA. Problemas como esse são categorizados como problemas de alinhamento de valores, e são temas polêmicos em questões de ética para o uso dessa tecnologia.
+
+Muitas são as disciplinas que contruibuiram com ideais, técnicas e pontos de vistas para a IA. A exemplo dessas contribuições, a psicologia permitiu a comparação de formas de pensar entre animais, seres humanos e máquinas. A matemática levantou questões em relação a computação e raciocínio de cenários incertos. Essas são apenas duas dentre muitas outras áreas que abordam tópicos que são relevantes para o estudo da Inteligência Artificial.
+
+\subsection{Histórico}
+
+Acredita-se que a primeira ideia de uma inteligência artificial surgiu na Grécia Antiga com o mito de Talos. Esse gigante de bronze tinha como objetivo proteger  a ilha de Creta realizando três voltas todos os dias, e assim que avistava invasores, os repelia arremessando rochas contra eles.
+
+Diversos mitos e histórias apresentam conceitos que se assemelham ou de fato se enquadram com o propósitos de uma Inteligência Artificial, um ser não completamente humano mas capaz de pensar e agir racionalmente ou de uma forma mais próxima à um homem ou uma mulher. Contudo, conceitos mais concretos e estudos relacionados só começaram a ser abordados a partir de 1943. Acontecimentos marcantes ocorreram entre 1943 e 1956, a seguir são citados alguns de destaque:
+
+\begin{itemize}
+    \item Em 1943 surge a a primeira inteligência artificial como modelo computacional de redes neurais criado por Warren McCulloch e Walter Pitts. Nesse modelo cada neurônio é caracterizado como "ligado" e "desligado". A mudança de status para "ligado" ocorreria através da quantidade de neurônios vizinhos que estimalria a mudança de estado. Vale notar que uma rede por mais simples que seja, se bem estruturada com seus conectivos lógicos poderia aprender.
+
+    \item Em 1949, Donald Hebb demonstrou o que ficaria 
+    conhecido como "aprendizagem Hebbiana". Com o objetivo de simular o processo de aprendizagem humano, o algoritmo de Hebb é projetado para ajustar o peso das conexões entre neurônio de forma que a medida em que são ativados simultaneamente e com frequência, essa conexão se fortalece. Enquanto que, se dois neurônios não ativados de forma recorrente e contínua o resultado é essa conexão se enfraquecer.(“O que é Hebbian Learning (Aprendizado Hebbiano) em IA?”, [s.d.])
+
+    \item Em 1951 é construido em havard o primeiro computador de de rede neural. Conhecido como SNARC, esse computador se tratava de uma calculadora capaz de simular sinapses por meio de operações matemáticas.
+
+    \item Alan Turing apresenta conceitos importantes como: Machine Learning, ou seja, a ideia de que máquinas podem a partir de um conjunto de dados, aprender. Aprendizado por reforço é outro conceito, atrelado machine learning, que faz uso do aprendizao por tentativa e erro para ensinar a máquina solucionar determinado problema. Na figura encontra-se uma representação de situação de aprendizado por reforço. Nela o robô deverá percorrer um mapa com obstáculos, com o objetivo de pegar o diamnate. O robô será penalizado sempre que encontrar um obstáculo, e somente será recompensado com o diamante quando enquantrar o melhor caminho.  \ref{fig:turing-reforço} (DSA, 2022a)
+
+    \begin{figure}[h]
+        \caption{Ilustração de situação de aprendizado por reforço}
+        \centering
+        \includegraphics{aprendizado por reforço.png}
+        \parbox{\linewidth}{\small
+        \centering
+        \textbf{Fonte:} (DSA, 2022a)
+    }
+        \label{fig:turing-reforço}
+    \end{figure}
+
+    \item Em 1956 o Dartmouth Summer Research Project, um evento com um pequeno grupo de cientistas que discutiram e deram nascimento à área de pesquisa de inteligência artificial. Organizado por John MacCarthy, ele argumentou em sua proposta que "proceder com base na conjectura de que cada aspecto da aprendizagem ou qualquer outra característica da inteligência pode, em princípio, ser descrito com tanta precisão que uma máquina pode ser feita para simulá-lo". (“Artificial Intelligence (AI) Coined at Dartmouth | Dartmouth”, [s.d.])
+\end{itemize}
+
+O período de 1952 à 1969 foi considerado como uma época de grande entusiasmo e expectativas em razão de invações tecnológicas e avanços científicos. Entre eles destacam-se:
+
+\begin{itemize}
+    \item O surgimento do Perceptron, criado por Frank Rosenblatt. Trata-se de um algoritmo para o reconhecimento de padrões baseado em uma rede neural computacional de duas camadas usando simples adição e subtração. (DSA, 2022b)
+    
+    \item A construção do Provador do Teorema de Geometria, por Hebert Gelernter em 1959. Isso permitiu auxiliar a resolução de problemas matemáticos considerados como complexos por muitos estudantes 
+
+\end{itemize}
+
+A partir de 1966 até 1973 começaram a surgir alguns problemas dos quais a IA não era capaz de solucionar. Os Perceptrons por exemplo não conseguiam resolver problemas mais complexos, eles apenas conseguiram resolver operadores lógicos linearmente separáveis, o que representava muito pouco. (DSA, 2022c). Essa descoberta da limitação dos perceptrons dava inicio ao que seria chamado de "inverno da IA". 
+
+Durante 1969 até 1986,começaram a surgir os chamados sistemas especialistas. Esses sistemas eram responsáveis pela realização de tarefas tão complexas quanto as realizadas por um humano, ou seja, eles eram especialitas em determinada atividade. Dendral foi o primeiro, desenvolvido com o objetivo de realizar inferências quanto a estrutura molecular a partir de dados coletados por um espectômetro (JUNIOR; NOGUEIRA; VINHAL, 2008)
+
+Outro exemplo de sistema especialista é o MYCIN. Responsável por diagnosticar infecções no sangue por bactérias. Esse sistema foi útil principalmente quanto a recomendação de formas de tratamento inferidas por meio da analise de dados laboratoriais.(“Inteligência Artificial e atendimento médico”, [s.d.])
+
+R1 foi o primeiro sistema especialista comercial bem sucedido por economizar 40 milhões de dolares por ano para a Digital Equipment Corporation. O sucesso de sistemas especialistas como esse gerou uma febre para investimentos na indústria de IA que em 1988 chegava a bilhões de dolares.
+
+Após a estagnação da IA na década de 70, na década de 80 esse área voltava a ser o foco de estudos e investimentos como antes.
+Em 1982 cientistas reimaginavam o algoritmo de aprendizagem chamado back-propagation. Esse algoritmo acelerou o treinamento de redes neurais em milhões de vezes se comparado com uma implementação ingênua. (DSA, 2022d) 
+
+Em 1987 a Inteligência Artificial se tornava uma área de pesquisa rica em metodologias, teorias e conteúdo. (JUNIOR; NOGUEIRA; VINHAL, 2008). Subcampos como Machine Learning e Raciocínio Probabilistico ganhavam destaque nesse período, enquanto outros como visão computacional, robótica, reconhecimento de fala, sistemas multiagentes e processamento de linguagem natural se aproximavam. 
+
+Apesar do Big Data de fato ter origem entre 1960 e 1970 com o surgimento dos primeiros Data Centers e bancos de dados relacionais, apenas no inicio dos anos 2000 que o conceito começa a ser trabalhado. Um analista chamado Doug Laney destacava a importância da coleta e armazenamento de dados para futuras análises. Isso porque se observava uma enorme quantidade de dados gerados por sites como Youtube e até mesmo a antiga rede social, Orkut. Era necessário uma maneira de organizar essa gigantesca quantidade de dados armazenado que crescia diariamente. (SITEWARE, [s.d.])
+
+O Big Data em sí apresenta 5 características conhecidas como "Os 5 V's" que definem bem a ideia desse recurso tecnológico:
+
+\begin{itemize}
+    \item \textbf{1. Volume}: Aqui destaca-se o armazenamento de uma grande quantidade de dados obtida através de diversos meios diferentes.
+
+    \item \textbf{2. Velocidade}: Para uma enorme quantidade de dados, se faz necessário agilizar as formas de coleta, análise e tomadas de decisão em cima desses dados
+
+    \item \textbf{3. Variedade}: Os dados são armazenados em formatos diferentes de acordo com a necessidade
+
+    \item \textbf{4. Valor}: Os dados armazenados devem possuir peso para o negócio, dessa forma é preciso evitar acúmulo de informações desnecessárias.
+
+    \item \textbf{5. Veracidade}: As informações devem ser verídicas. Dados falsos comprometem futuras análises e enviesam novas informações
+\end{itemize}
+
+Em 2011, o aprendizado profundo, ou Deep Learning ganhava destaque, principalmente no reconhecimento de fala e visual de objetos. Esse subcampo da inteligência artificial refere´se ao uso de multiplas camadas de redes neurais para resolução de problemas complexos. Essa tecnologia, em termos de escala não se compara com a de um cerebro humano. Toda camada dessa rede é treinada a partir de resultados da camada anterior, ou seja, ela é treinada como um todo.  (DSA, 2022a)
+
+Hoje em dia é muito comum tecnologias baseadas em deep learning. O reconhecimento facial utilizado não só em celulares mas em sistemas de segurança são bons exemplo de uso dessa tecnologia. Ela também está bastante presente em sistemas de recomendação como o utilizado pelo Youtube, e em assistentes virtuais. 
+
+\subsection{Estado da Arte, Riscos e Benefícios}
+
+Para o estudo do efeito da Inteligência Artificial na vida das pessoas e discussão sobre os possíveis futuros que essa área da ciência pode tomar, surgiu uma iniciativa de cem anos de estudo de IA pela Universidade de Stanford. Também conhecido como AI100 essa iniciativa oferece um relatório acerca do estado atual da IA envolvendo outras áreas como política, cultura e economia, o que favorece uma reflexão mais aprofundada sobre as visões da sociedade em meio essa tecnologia. O relatório mais recente, de 2021 conclui que houve um salto enorme dessa área para a vida das pessoas nos últimos anos. Isso torna urgente a necessidade de conhecer seus efeitos positivos e negativos.
+
+De acordo com LITTMAN et al. (2022), no relatório de AI100 em 2021, entre os benefícios de uso dessa inteligência pode-se listar:
+
+\begin{itemize}
+    \item O uso da IA para aprimoração: Há muitos formas que a IA pode aprimorar a capacidade das pessoas, dado que suas forças podem se complementar, e combinados elas podem obter mais sucesso do que sozinhas.
+
+    \item Auxílio em percepções: Essa tecnologia já é capaz de assistir na identificicação de moléculas sintetizantes em laboratórios ou até mesmo de padrões de algoritmos para se conseguir uma melhor performance. Além disso ela auxília em descobertas e permite identificar como a semantica de determinadas palavras alteram durante o tempo.
+
+    \item Auxílio na tomada de decisão: Enquanto o ser humano é bem capaz de tomar grandes decisões quanto a rotas e observar certos cuidados, uma IA como motorista poderia manter os carros dentro da pista e observar mudanças repentinas no fluxo do transito
+
+    \item IAs como assistentes: A IA é capaz de oferecer assistência básica durante uma tarefa. Por exemplo o uso das assistentes virtuais nos smartfones providenciam auxílio e respostas rápidas quanto a buscas por informações no dia a dia, tradução de palavras e etc.
+\end{itemize}
+
+No entanto mesmo com esses benfícios, o uso da IA ainda passa por desafios para a esfera legal ou até mesmo economica.  Por exemplo, o mal uso ou preocupações de conformidade dificultam e limitam a integração dessa tecnologia no setor de saúde.
+
+Ainda no relatório de AI100 de 2021, é alertado uma série de riscos que podem ser comprometidos com o uso dessa ferramenta:
+
+\begin{itemize}
+    \item O tecnico solucionismo: Esse é o termo dado a visão de que a IA é uma panaceia, ou a solução para todos os problemas. No entanto, frequentemente a tecnologia cria problemas ainda maiores ao tentar resolver os menores. Por exemplo, o uso da IA para agilizar e automatizar a aplicação de serviços sociais pode se tornar mais rigorose e ignorar parcela da população necessitada.
+
+    \item Perigos de adoção de uma perspectiva estatística na justiça: O uso de IAs na análise da percepção de riscos que um indivíduo pode representar para a sociedade pode resultar em dados enviesados. Além disso o fator de decisão humano nesses casos é de extrema importância mas não há garantia que essa tecnologia não será abusada nesse contexto.
+
+    \item Desinformação e ameaça a democracia: A IA já está sendo utilizada para disseminar conteúdo falso na internet. Dessa forma até mesmo em cenário de eleição e propaganda política, essa ferramenta pode ser utilizada para espalhar notícias falsas sobre determinado candidato. Isso compromete a democracia e o direito de opinião própria do cidadão, o que pode lhe tornar alienado.
+
+    \item Descriminação e risco no cenário médico: Os modelos de negócio atuais para o uso da IA na medicina é focado na construção de sistemas únicos, por exemplo num preditor de deterioração. Esses sistemas não generalizam além dos dados de treinamento. Assim, testes clinicos pequenos podem desviar os preditores e com o tempo, prejudicar a precisão do sistema.
+    
+\end{itemize}
+
+\subsection{Agentes e ambientes}
+Um agente é um sistema capaz de coletar dados e informações sobre determinado ambiente através de sensores, e que por meio de atuadores consegue agir sobre aquele ambiente. A ação de um agente portanto equivale na ação tomada a partir daquilo que é percebido e programado internamente. A função de um agente fornece como o agente deverá tomar suas ações com base uma sequência de percepções do ambiente. O programa agente é um software responsável pela implementação da função agente em um ambiente artificial.
+
+Como a ideia do que é "melhor" para um agente pode variar é necessária estabelecer medidas de desempenho de forma que o agente busque realizar ações para otimizar a performance esperada. Em outras palavras, ele irá procurar maximizar o que é considerado como bom e reduzir o que é considerado como ruim. Essa abordagem é denominada como consequencialismo. 
+
+Para um agente ser racional no entando é preciso considerar: A medida de desempenho que define o critério de sucesso, a memória do agente até a decisão, as ações possíveis, e a memória do agente quanto as informações do ambiente.
+
+A arquitetura de um agente pode ser abstrata, ou seja nessa caso ainda é uma representação, ou concreta se desenvolvida por exemplo através de uma linguagem de programação (NETO; FAGUNDES, 2010). Há diversos tipos de agentes de acordo com suas características, entre entre eles destacam-se: 
+
+\begin{itemize}
+    \item Agentes de reflexo simples (Simple reflex agents): São o tipo mais simples pois atuam sobre a percepção atual do ambiente.
+
+    \item Agentes de reflexo baseado em modelo (Model-based reflex agents): Possuem um certo nível de memória e conseguem armazenar dados referentes ao ambiente para planejar suas ações.
+
+    \item Agentes baseados em objetivos(Goal-based agents): Diferem-se por possuirem metas e objetivos que serão a motivação principal para o planejamento de ações.
+
+    \item Agentes utilitários (Utility-based agents): Trazem todas as características dos agentes de reflexo e objetivo, no entanto se diferem na medida em buscam a realização de ações que otimizem aspectos como custo, beneficio e risco.
+    
+\end{itemize}
+
+\subsection{Especificando um ambiente de tarefas}
+
+O ambiente é um critério crucial a ser considerado na construção de um agente. Ele será diferente para cada problema, sendo definido a partir da: Performance (Medida de performance esperada), Ambiente (Estado atual do ambiente), Atuadores (Os meios utilizados para executar as ações), Sensores (Formas de captação das informações do ambiente).
+
+\subsection{Representação de estados}
+Os estados podem ser representados como:
+
+\begin{itemize}
+    \item \textbf{Atômico}: Representação simples e indivisível do ambiente.
+
+    \item \textbf{Fatorado}: Estados formados por meio de uma combinação de atributos e características do ambiente. Esses atributos são independentes e assim que combinados podem representar estados mais complexos
+
+    \item \textbf{Estruturado}: Representação mais complexa em razão do relacionamento entre objetos. 
+
+\end{itemize}
+
+\section{Contribuições}
+
+\subsection{PEAS}
+
+Para a contribuição PEAS se imagina um sistema de cozinheiro autônomo capaz de utilizar suas mão e utêncílios de cozinha para manipular a comida, um sistema de reconhecimento por voz para "anotar" os pedidos, e rodas para se locomver pelo ambiente, além de uma câmera utilizada para identificar a presença dos ingredientes. O ambiente em sí seria uma cozinha. E quanto a forma de medida de desempenho, seria o preparo correto das receitas de comida. A tabela \ref{tab:Peas} apresenta o resumo do PEAS proposto
+
+\begin{table}[h]
+    \caption{PEAS de um cozinheiro autônomo }
+    \vspace{2mm}
+    \centering
+    \resizebox{\textwidth}{10mm}{\begin{tabular}{c|c|c|c}
+        \hline Performance & Ambiente & Atuadores & Sensores \\
+        \hline Preparo correto da comida & Cozinha com utencílios & Mãos para uso de utencílios, & Reconhecimento por voz  \\
+        Montagem dos pratos &  & eletrodomésticos de cozinha & Câmera \\
+         & & e ingredientes, Rodas &  \\
+         \hline
+    \end{tabular}}
+     \parbox{\linewidth}{\small
+        \centering
+        \textbf{Fonte:} O Autor (2024)
+    }
+    \label{tab:Peas}
+\end{table}
+
+\section{Outros modelos de Arquitetura para Agentes Inteligentes}
+
+Durante o estudo e realização deste trabalho foi discutido brevemente algumas arquituras para agentes inteligentes. Durante a pesquisa foi encontrado uma tese interessante acerca de arquiteturas para agentes inteligentes com personalidade e emoção. Em resumo, o trabalho realizado por NETO e FAGUNDES, (2010) tem como principal objetivo construir uma personagens sintéticos influenciados por estados emotivos. Esses agentes também são conhecidos como Agentes com comportamento Convincentes (Believable Agents)
+
+Para o desenvolvimento da arquitetura proposta na tese, foi utilizada o modelo BDI (Beliefs, Desires, Intentions). Dessa forma o trabalho faz um comparativo entre alguns agentes inteligentes: 
+
+\begin{itemize}
+    \item Agentes baseados em lógica: Conhecida também como Inteligência Artificial Simbólica. Faz uso de representação simbólica (constituída por formulas lógicas) do ambiente e do comportamento desejado, além de deduções lógicas para manipular o comportamento do agente.
+
+    \item Agentes Reativos: Equivalem aos agentes de reflexo simples, ou seja atuam com base nas informações percebidas e imediatas do ambiente.
+
+    \item Agentes BDI: Tem como finalidade descrever o processo prático de raciocínio humano. Dividem sua arquitetura em Crenças, Desejos e Inteções, portanto o nome BDI. Informações do ambiente são capturadas pela percepção e armazenadas na memória. O processamento da arquitetura decide qual objetivo alcançar e a partir dele, um plano da biblioteca para executar.
+
+    \item Agentes com arquitetura de camada: Divide o processo de tomada de decisão em camadas. Ocorre um separamento vertical ou horizontal de camadas. Se os agentes funcionam com camadas horizontais, todas elas manipulam a entrada e saída de dados. Se as camadas estiverem na vertical apenas a primeira é responsavel por manipular os dados de entrada, e a última pelos dados de saída .
+\end{itemize}
+
+Nesta tese, portando, optou-se por seguir com a implementação de um agente BDI, decisão apoiada em razão da quantidade ampla de implementações já existentes, o que facilita principalmente em termos de referência. Entre os pesquisados estão: AgentBuilder, Jack, Jadex, JAM, UMPRS e Jason. Em análise dessas implementações, o Jason se tornou mais apropriado. Vale notar algumas características dessa framework:
+
+\begin{itemize}
+    \item Baseado em uma linguagem de programação orientada a agentes, chamada AgentSpeak.
+
+    \item Possui 4 componentes principais: Base de Conhecimento, Biblioteca de Plano, Conjunto de Eventos e conjunto de ações.
+
+    \item Permite o controle do ciclo de vida do agente (Criação, Execução e Destruição).
+\end{itemize}
+
+Devido a possibilidade de customizar modulos e funções de seleção, e possuir uma classe (enviroment) que facilitava a implementação em Java de forma independente da arquitetura, a escolha do Jason pareceu a mais correta para NETO e FAGUNDES, (2010)
+
+Alguns conceitos interessates mencionados no artigo, e que valem destacar são os de Crença, Desejo e Intenção. Em resumo Crença se refere a todas as informações que possui sobre o ambiente e outros agentes envolvidos. Desejo, ou Objetivo se referem aos estados do ambiente almejados pelo agente, ou seja, qual o estado final do ambiente desejado após as modificações. Por fim a intenção, descrita bastante como plano, se refere as ações que o agente é capaz de realizar. É interessante notar que o Módulo de intenção é responsável por motivar ou orientar o agente dando a ele autonomia e automotivação.
+
+A arquitetura da framework Jason foi customizada para incluir o Módulo Afetivo. Esse módulo foi responsável por influenciar os filtros de memória, percepção e planos que consequentemente influenciavam o processo de tomada de decisão.
+
+Com a implementação do modelo de arquitetura BDI NETO e FAGUNDES, (2010) conseguiram observar o impacto desse modelo na alteração do comportamento do agente, mudanças no estado afetivo, um comportamento mais adaptativo e cooperativo, e ao mesmo tempo mais próximo do comportamento de um ser humano ao contrário de algo aleatório ou ótimo.
+
+\section{Conclusão}
+
+A realização deste trabalho demonstrou-se gratificante a medida que reforçou conhecimento relacionado a Inteligência Artificial, permitiu observar e estudar momentos históricos marcantes para a evolução dessa tecnologia, além de apresentar conceitos para conhecimentos futuros. De fato a IA passou por várias alterações no decorrer da história a ponto de se tornar um campo de estudos tão abrangente que não só passou a incorporar outros áreas de estudo, mas também abriu portas para novas frentes de pesquisa na era moderna da informação e tecnologia.
+
+\section{Referências}
+\noindent O que é Inteligência Artificial (IA)? | IBM. Disponível em: <https://www.ibm.com/br-pt/topics/artificial-intelligence>. Acesso em: 16 abr. 2024.  \\
+
+\noindent HAUGELAND, John. Artificial Intelligence: The Very Idea. Massachusetts: The MIT Press, 1985.\\ 
+
+\noindent PUCRS. Inteligência Artificial: o que é e como funciona. Disponível em: <https://online.pucrs.br/blog/inteligencia-artificial>. Acesso em: 16 abr. 2024. \\
+
+\noindent PARETO. Teste de Turing: A Jornada da IA para a Autonomia! , 9 nov. 2023. Disponível em: <https://blog.pareto.io/teste-de-turing/>. Acesso em: 16 abr. 2024\\
+
+\noindent O que é Hebbian Learning (Aprendizado Hebbiano) em IA? - Glossário de Automação. , [s.d.]. Disponível em: <https://glossario.maiconramos.com/glossario/o-que-e-hebbian-learning-aprendizado-hebbiano-em-ia/>. Acesso em: 17 abr. 2024 \\
+
+\noindent DSA, E. Capítulo 62 - O Que é Aprendizagem Por Reforço? 2022a. Disponível em: <https://www.deeplearningbook.com.br/o-que-e-aprendizagem-por-reforco/>. Acesso em: 17 abr. 2024. \\
+
+\noindent Artificial Intelligence (AI) Coined at Dartmouth | Dartmouth. Disponível em: <https://home.dartmouth.edu/about/artificial-intelligence-ai-coined-dartmouth>. Acesso em: 17 abr. 2024. \\
+
+\noindent DSA, E. Capítulo 2 - Uma Breve História das Redes Neurais Artificiais. 2022b. Disponível em: <https://www.deeplearningbook.com.br/uma-breve-historia-das-redes-neurais-artificiais/>. Acesso em: 17 abr. 2024. \\
+
+\noindent DSA, E. Capítulo 7 – O Perceptron – Parte 2. 2022c. Disponível em: <https://www.deeplearningbook.com.br/o-perceptron-parte-2/>. Acesso em: 17 abr. 2024. \\
+
+\noindent CAMILO JUNIOR, C. G.; NOGUEIRA, R. G.; VINHAL, C. D. N. Inteligência Artificial Distribuida: conhecendo para aplicar. Revista EVS - Revista de Ciências Ambientais e Saúde, Goiânia, Brasil, v. 35, n. 2, p. 247–256, 2008. DOI: 10.18224/est.v35i2.644. Disponível em: https://seer.pucgoias.edu.br/index.php/estudos/article/view/644. Acesso em: 17 abr. 2024. \\
+
+\noindent MEDCEL. Inteligência Artificial e atendimento médico: o que podemos esperar? Disponível em: <https://blog.medcel.com.br/post/inteligencia-artificial-e-atendimento-medico-o-que-podemos-esperar>. Acesso em: 17 abr. 2024. \\
+
+\noindent DSA, E. Capítulo 14 - Algoritmo Backpropagation Parte 1 - Grafos Computacionais e Chain Rule. 2022d. Disponível em: <https://www.deeplearningbook.com.br/algoritmo-backpropagation-parte1-grafos-computacionais-e-chain-rule/>. Acesso em: 17 abr. 2024. \\
+
+\noindent SITEWARE. Big Data: o que é + 5Vs + para que serve? Disponível em: <https://www.siteware.com.br/blog/gestao-estrategica/o-que-e-big-data/>. Acesso em: 17 abr. 2024. \\
+
+\noindent LITTMAN, M. et al. Gathering Strength, Gathering Storms: The One Hundred Year Study on Artificial Intelligence (AI100) 2021 Study Panel Report. [s.l: s.n.]. \\
+
+\noindent NETO, B.; FAGUNDES, A. Uma arquitetura para agentes inteligentes com personalidade e emoção. text—[s.l.] Universidade de São Paulo, 2 jun. 2010. \\
+
+\end{document}
