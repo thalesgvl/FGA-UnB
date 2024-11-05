@@ -12,4 +12,5 @@ int main()
 	scanf("%lf %lf", &A, &B);
 	printf("MEDIA = %.5lf", MEDIA(A, B));
 	return 0;
+
 }
