@@ -20,7 +20,6 @@ unsigned long long fibr(int N)
 	return memo[N];
 }
 
-
 int main()
 {
     int N;
