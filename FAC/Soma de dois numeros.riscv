@@ -1,0 +1,38 @@
+ 	.data #declara e inicializa as variáveis
+ 	.text #onde escreve o código do programa
+ 	
+ main: #label marcando o ponto inicial do programa
+ 
+	#leitura do primeiro número:
+	li a7, 5	#coloca a instrução de leitura de número (syscall = 5) e o armazena no registrador (a7)
+	ecall	#chamada para o sistema op para executar a syscall
+	
+	#input do usuário:
+	#armazenado no registrador a0
+	
+	mv t0, a0      #copia o número lido (de a0) para o registrador t0 para usar depois
+	
+
+	
+	#solicitar e ler o segundo número:
+	li a7, 5	#syscall 5: ler número
+	ecall	#chama o sistema para ler o número
+	mv t1, a0	#armazena o segundo número em t1
+ 	
+ 	#somar os dois números:
+	add t2, t0, t1    #soma t0 (primeiro número) e t1 (segundo número), armazena em t2
+
+	#mostrar o resultado:
+
+	mv a0, t2	#move o resultado da soma (t2) para a0
+	li a7, 1	#syscall 1: imprimir número
+	ecall	#chama o sistema para imprimir o número
+
+	#adicionar nova linha
+	li a0, 10       #vódigo ASCII do '\n'
+	li a7, 11       #syscall 11: Imprimir caractere
+	ecall           #chama o sistema para imprimir o '\n'
+
+	#saída do programa:
+	li a7, 10      #syscall 10 = encerrar o programa
+ 	

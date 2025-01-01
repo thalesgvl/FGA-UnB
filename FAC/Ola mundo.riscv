@@ -1,0 +1,13 @@
+    .data #declara e inicializa variáveis
+msg:    .asciz  "Ola Mundo\n" #string com null terminator
+
+    .text #código começa aqui <-
+
+main: #label marcando ponto inicial do programa
+
+    la a0, msg                      #carrega o endereço de "msg" em a0
+    addi a7, zero, 4                #código para printar no endereço a0
+    ecall                           #chamada do sistema
+
+    addi a7, zero, 10               #sai do código
+    ecall                           #chamada do sistema
